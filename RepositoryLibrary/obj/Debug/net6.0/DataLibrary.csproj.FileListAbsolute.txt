@@ -1,0 +1,15 @@
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\bin\Debug\net6.0\DataLibrary.deps.json
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\bin\Debug\net6.0\DataLibrary.dll
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\bin\Debug\net6.0\DataLibrary.pdb
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\bin\Debug\net6.0\EntityLibrary.dll
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\bin\Debug\net6.0\EntityLibrary.pdb
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\DataLibrary.csproj.AssemblyReference.cache
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\DataLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\DataLibrary.AssemblyInfoInputs.cache
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\DataLibrary.AssemblyInfo.cs
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\DataLibrary.csproj.CoreCompileInputs.cache
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\DataLibrary.csproj.CopyComplete
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\DataLibrary.dll
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\refint\DataLibrary.dll
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\DataLibrary.pdb
+C:\Users\irade\source\repos\Academy1\RepositoryLibrary\obj\Debug\net6.0\ref\DataLibrary.dll

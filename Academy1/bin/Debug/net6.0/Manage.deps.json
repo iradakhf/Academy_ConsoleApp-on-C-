@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Manage/1.0.0": {
+        "dependencies": {
+          "DataLibrary": "1.0.0"
+        },
+        "runtime": {
+          "Manage.dll": {}
+        }
+      },
+      "DataLibrary/1.0.0": {
+        "dependencies": {
+          "EntityLibrary": "1.0.0"
+        },
+        "runtime": {
+          "DataLibrary.dll": {}
+        }
+      },
+      "EntityLibrary/1.0.0": {
+        "runtime": {
+          "EntityLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Manage/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EntityLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

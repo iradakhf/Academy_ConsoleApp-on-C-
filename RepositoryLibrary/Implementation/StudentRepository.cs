@@ -7,9 +7,10 @@ namespace RepositoryLibrary.Implementation
 {
     public class StudentRepository : IRepository<Student>
     {
-        public void Create(Student entity)
+        public Student Create(Student entity)
         {
             Data.Students.Add(entity);
+            return entity;
         }
 
         public Student Get(Predicate<Student> filter = null)

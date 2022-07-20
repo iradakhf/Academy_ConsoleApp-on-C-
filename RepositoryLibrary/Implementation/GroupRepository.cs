@@ -1,15 +1,22 @@
 ﻿using DataLibrary;
 using EntityLibrary;
 using RepositoryLibrary.Base;
+using EntityLibrary.abstraction;
 
 
 namespace RepositoryLibrary.Implementation
 {
     public class GroupRepository : IRepository<Group>
-    {
-        public void Create(Group entity)
+    { 
+        private static int id=0;
+       
+        public Group Create(Group entity)
         {
+            id++;
+            entity.Id = id;
             Data.Groups.Add(entity);
+            
+            return entity;
         }
 
         public Group Get(Predicate<Group> filter=null)

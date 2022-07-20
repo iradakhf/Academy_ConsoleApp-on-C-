@@ -4,7 +4,7 @@ namespace RepositoryLibrary.Base
 {
     public interface IRepository<T> where T :  IEntity
     {
-        public void Create(T entity);
+        public T Create(T entity);
 
         public void Update(T entity);
 

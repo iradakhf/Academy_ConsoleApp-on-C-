@@ -3,14 +3,16 @@ using DataLibrary;
 using RepositoryLibrary.Implementation;
 using static EntityLibrary.Constatnts.Constants;
 using EntityLibrary;
+using Manage.Controllers;
 
 namespace Manage
 {
     public class Program
     {
         public static void Main(string[] args)
-        {
-            GroupRepository groupRepository = new GroupRepository();
+
+        {   GroupController _groupController = new GroupController();
+            
             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGray, "Welcome");
             Console.WriteLine("   ");
             Console.WriteLine("Please enter 0 if you want to continue");
@@ -27,7 +29,7 @@ namespace Manage
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "2-update group");
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "3-remove group");
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "4-get all groups");
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "5-get group by size");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "5-get group");
 
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select one of the options");
                         string number1 = Console.ReadLine();
@@ -39,39 +41,22 @@ namespace Manage
                             {
                                 switch (selected)
                                 {
-                                    #region
+                                   
                                     case (int)Options.CreateGroup:
-                                    groupName: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter a group name");
-                                        string groupName = Console.ReadLine();
-                                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "Group maxSize");
-                                        string sizeString = Console.ReadLine();
-                                        int maxSize;
-                                        bool result1 = int.TryParse(sizeString, out maxSize);
-                                        if (result1)
-                                        {
-                                            Console.WriteLine($"Group Name is {groupName} Maxsize is {maxSize}");
-                                        }
-                                        else
-                                        {
-                                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter correct patterns");
-                                            goto groupName;
-                                        }
+                                        _groupController.CreateGroup();
                                         break;
-                                    #endregion
+                                   
                                     case (int)Options.UpdateGroup:
-                                       
+                                        _groupController.Update();
                                         break;
                                     case (int)Options.RemoveGroup:
+                                        _groupController.DeleteGroup();
                                         break;
                                     case (int)Options.GetGroup:
+                                        _groupController.GetGroup();
                                         break;
                                     case (int)Options.GetAllGroups:
-                                       var groups = groupRepository.GetAll();
-                                        foreach(var group in groups)
-                                        {
-
-                                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, $"Name {group.Name} , MaxSize {group.MaxSize}");
-                                        }
+                                        _groupController.GetAllGroup();
                                         break;
                                     case (int)Options.Exit:
                                         ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "you exit");

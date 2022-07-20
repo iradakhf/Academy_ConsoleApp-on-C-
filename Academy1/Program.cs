@@ -28,8 +28,8 @@ namespace Manage
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "1-create group");
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "2-update group");
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "3-remove group");
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "4-get all groups");
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "5-get group");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "4-get group");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "5-get all groups");
 
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select one of the options");
                         string number1 = Console.ReadLine();

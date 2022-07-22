@@ -114,13 +114,16 @@ namespace Manage
                                 _studentController.UpdateStudent();
                                 break;
                             case (int)Options2.RemoveStudent:
-                                   // _studentController.RemoveStudentByGroup();
+                                   _studentController.RemoveStudent();
+                                    goto Initial;
                                 break;
                             case (int)Options2.GetStudentByGroup:
                                     _studentController.GetStudentByGroup();
                                     goto Initial;
                                 break;
                             case (int)Options2.GetAllStudentsByGroup:
+                                    _studentController.GetAllStudentsByGroup();
+                                    goto Initial;
                                 break;
                         }
                         }

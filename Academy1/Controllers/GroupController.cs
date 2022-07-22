@@ -16,7 +16,7 @@ namespace Manage.Controllers
         public void CreateGroup()
         {
 
-        groupName: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter a group name");
+         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter a group name");
             string groupName = Console.ReadLine();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter group maxSize");
             string sizeString = Console.ReadLine();
@@ -35,18 +35,25 @@ namespace Manage.Controllers
             else
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter correct patterns");
-                goto groupName;
+                
             }
         }
         #endregion
         #region GetAllGroup
         public void GetAllGroup()
-        {
+        { 
             var groups = _groupRepository.GetAll();
-            foreach (var group in groups)
+            if (groups != null)
             {
+                foreach (var group in groups)
+                {
 
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, $"Name {group.Name} , MaxSize {group.MaxSize}");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, $"Name {group.Name} , MaxSize {group.MaxSize}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("no groups found");
             }
         }
         #endregion

@@ -102,17 +102,37 @@ namespace Manage.Controllers
         }
         #endregion
         #region RemoveStudentByGroup
-        //public void RemoveStudent()
-        //{ 
-        //    ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "Please, enter a student name to delete");
-        //    string name = Console.ReadLine();
+        public void RemoveStudent()
+        {
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "all groups");
+            var groups = _groupRepository.GetAll();
+            foreach (var group in groups)
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, group.Name);
+            }
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "choose one group to remove student from");
+            string groupToRemoveStudentFrom = Console.ReadLine();
+            var groupGet = _groupRepository.Get(g => g.Name.ToLower() == groupToRemoveStudentFrom.ToLower());
+            if (groupGet != null)
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "Please, enter a student name to delete");
+                string name = Console.ReadLine();
+                var studentToRemove = _studentRepository.Get(s => s.Name.ToLower() == name.ToLower());
+                if (studentToRemove != null)
+                {
+                    _studentRepository.Remove(studentToRemove);
+                }
+                else
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "no student found");
+                }
 
-        //   foreach(var stu in Data.Students)
-        //    {
-        //     Data.Students.FindAll(s => s.Name.ToLower() == name.ToLower());
-        //        Console.WriteLine($"{s}");
-        //    }
-        //}
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "group doesnt exist");
+            }
+        }
         #endregion
         #region GetStudentByGroup
         public void GetStudentByGroup()
@@ -120,43 +140,43 @@ namespace Manage.Controllers
             if (_groupRepository.GetAll() != null)
             {
 
-            var groups = _groupRepository.GetAll();
-            foreach (var group in groups)
-            {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkCyan, group.Name);
-            }
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please, choose a group name to continue");
-            string choosenGroup = Console.ReadLine();
-            var gr = _groupRepository.Get(g => g.Name.ToLower() == choosenGroup.ToLower());
-            if (gr != null)
-            {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "please, enter student name");
-                string studentName = Console.ReadLine();
-                var students = _studentRepository.GetAll(g => g.Group.Id == gr.Id);
-                if (students.Count != 0)
+                var groups = _groupRepository.GetAll();
+                foreach (var group in groups)
                 {
-                    var choosenStudent = _studentRepository.Get(s => s.Name.ToLower() == studentName.ToLower());
-                    if (choosenStudent != null)
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkCyan, group.Name);
+                }
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Please, choose a group name to continue");
+                string choosenGroup = Console.ReadLine();
+                var gr = _groupRepository.Get(g => g.Name.ToLower() == choosenGroup.ToLower());
+                if (gr != null)
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "please, enter student name");
+                    string studentName = Console.ReadLine();
+                    var students = _studentRepository.GetAll(g => g.Group.Id == gr.Id);
+                    if (students.Count != 0)
                     {
-                        
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, $"id is {choosenStudent.Id}, Name is {choosenStudent.Name}, surname is {choosenStudent.Surname}, age is{choosenStudent.Age}");
+                        var choosenStudent = _studentRepository.Get(s => s.Name.ToLower() == studentName.ToLower());
+                        if (choosenStudent != null)
+                        {
+
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, $"id is {choosenStudent.Id}, Name is {choosenStudent.Name}, surname is {choosenStudent.Surname}, age is{choosenStudent.Age}");
+
+                        }
+                        else
+                        {
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkCyan, "there is no student like typed in the group");
+                        }
 
                     }
                     else
                     {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkCyan, "there is no student like typed in the group");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There is no student in the group");
                     }
-
                 }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There is no student in the group");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, choose existing group or create one");
                 }
-            }
-            else
-            {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, choose existing group or create one");
-            }
             }
             else
             {
@@ -164,8 +184,44 @@ namespace Manage.Controllers
             }
         }
         #endregion
+        #region GetAllStudentsByGroup
+        public void GetAllStudentsByGroup()
+        {
+
+            var groups = _groupRepository.GetAll();
+            if (groups != null)
+            {
+                foreach (var group in groups)
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, group.Name);
+                }
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "choose a group name");
+                string groupName = Console.ReadLine();
+                var groupToGetAllStudents= _groupRepository.Get(g=>g.Name.ToLower() == groupName.ToLower());
+                if(groupToGetAllStudents != null)
+                {
+                    var students = _studentRepository.GetAll();
+                    foreach (var student in students)
+                    {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, student.Name);
+
+                    }
+                }
+                else
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "no group like that");
+
+                }
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "group doesnt exist");
+            }
+        }
+    #endregion
     }
 }
+
 
 
 

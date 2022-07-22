@@ -43,7 +43,7 @@ namespace RepositoryLibrary.Implementation
 
         }
 
-        public List<Student> GetAll(Predicate<Student> filter)
+        public List<Student> GetAll(Predicate<Student> filter=null)
         {
             if (filter == null)
             {

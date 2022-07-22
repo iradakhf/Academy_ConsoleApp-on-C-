@@ -18,7 +18,7 @@ namespace Manage.Controllers
 
         groupName: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter a group name");
             string groupName = Console.ReadLine();
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "Group maxSize");
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter group maxSize");
             string sizeString = Console.ReadLine();
             int maxSize;
             bool result1 = int.TryParse(sizeString, out maxSize);
@@ -111,6 +111,10 @@ namespace Manage.Controllers
                 int size=group.MaxSize;
                 string groupName = group.Name;
                 Console.WriteLine($"Group Name is {groupName} , group size is {size}");
+            }
+            else
+            {
+                Console.WriteLine("group doesnt exist");
             }
            
         }

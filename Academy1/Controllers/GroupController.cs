@@ -1,11 +1,7 @@
 ﻿using DataLibrary;
 using EntityLibrary;
 using RepositoryLibrary.Implementation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Manage.Controllers
 {
@@ -108,18 +104,17 @@ namespace Manage.Controllers
         {
             Console.WriteLine("Please enter the name");
             string name = Console.ReadLine();
-            var group = _groupRepository.Get(g => g.Name == name.ToLower());
-            if (name != null)
+            var group = _groupRepository.Get(g => g.Name.ToLower() == name.ToLower());
+
+            if (group!=null)
             {
                 int size=group.MaxSize;
                 string groupName = group.Name;
                 Console.WriteLine($"Group Name is {groupName} , group size is {size}");
             }
-            else
-            {
-                Console.WriteLine("doesnt exist");
-            }
+           
         }
         #endregion
+       
     }
 }

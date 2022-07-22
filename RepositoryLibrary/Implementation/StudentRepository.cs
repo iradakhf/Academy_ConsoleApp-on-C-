@@ -6,9 +6,11 @@ using RepositoryLibrary.Base;
 namespace RepositoryLibrary.Implementation
 {
     public class StudentRepository : IRepository<Student>
-    {
+    {   
+        private static int id;
         public Student Create(Student entity)
-        {
+        {   id++;
+            entity.Id = id;
             Data.Students.Add(entity);
             return entity;
         }

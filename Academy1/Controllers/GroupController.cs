@@ -43,7 +43,7 @@ namespace Manage.Controllers
         public void GetAllGroup()
         { 
             var groups = _groupRepository.GetAll();
-            if (groups != null)
+            if (groups.Count !=0)
             {
                 foreach (var group in groups)
                 {
@@ -61,25 +61,30 @@ namespace Manage.Controllers
         public void Update()
         {
             Console.WriteLine("Please choose the group to update");
+            var groups = _groupRepository.GetAll();
+            foreach (var group1 in groups)
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, group1.Name);
+            }
             string groupName = Console.ReadLine();
             var group = _groupRepository.Get(g => g.Name.ToLower() == groupName.ToLower());
             if (group != null)
             {
                 int oldSize= group.MaxSize;
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "please, enter a group name");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "please, enter a new group name");
                 string name= Console.ReadLine();
-                group.Name =name;
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "please, enter MaxSize");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, "please, enter new MaxSize");
                 string maxSizes = Console.ReadLine();
                 int maxSize;
                  bool result = int.TryParse(maxSizes, out maxSize);
                 if (result)
                 {
+                    group.Name =name;
                     group.MaxSize= maxSize;
                 }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "please, enter number");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "please, enter a correct number for maxSize");
                 }
                 
             }
@@ -93,12 +98,19 @@ namespace Manage.Controllers
         #region DeleteGroup
         public void DeleteGroup()
         {
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "please enter the group you want to delete");
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "please choose the group you want to delete from displayed");
+            
+            var groups = _groupRepository.GetAll();
+            foreach (var group1 in groups)
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, group1.Name);
+            }
             string groupName = Console.ReadLine();
             var group = _groupRepository.Get(g=>g.Name.ToLower()==groupName.ToLower());
             if (group != null)
             {
                 _groupRepository.Remove(group);
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "group is removed");
             }
             else
             {
@@ -109,7 +121,12 @@ namespace Manage.Controllers
         #region GetGroup
         public void GetGroup()
         {
-            Console.WriteLine("Please enter the name");
+            var groups = _groupRepository.GetAll();
+            Console.WriteLine("Please enter the name of the group you want to get");
+            foreach (var group2 in groups)
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, group2.Name);
+            }
             string name = Console.ReadLine();
             var group = _groupRepository.Get(g => g.Name.ToLower() == name.ToLower());
 

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manage", "Academy1\Manage.csproj", "{A01E5D3D-C190-473E-B5FA-399262521AAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manage", "Academy1\Manage.csproj", "{A01E5D3D-C190-473E-B5FA-399262521AAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLibrary", "EntityLibrary\EntityLibrary.csproj", "{6C03C849-BE01-40F7-AFB5-6DDC3C08753A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityLibarary", "EntityLibrary\EntityLibarary.csproj", "{6C03C849-BE01-40F7-AFB5-6DDC3C08753A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "RepositoryLibrary\DataLibrary.csproj", "{C93CC817-429D-4AE3-9879-714DA6130F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLibrary", "RepositoryLibrary\DataLibrary.csproj", "{C93CC817-429D-4AE3-9879-714DA6130F55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

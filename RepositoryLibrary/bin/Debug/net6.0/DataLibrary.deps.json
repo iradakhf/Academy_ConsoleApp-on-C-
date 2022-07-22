@@ -8,15 +8,15 @@
     ".NETCoreApp,Version=v6.0": {
       "DataLibrary/1.0.0": {
         "dependencies": {
-          "EntityLibrary": "1.0.0"
+          "EntityLibarary": "1.0.0"
         },
         "runtime": {
           "DataLibrary.dll": {}
         }
       },
-      "EntityLibrary/1.0.0": {
+      "EntityLibarary/1.0.0": {
         "runtime": {
-          "EntityLibrary.dll": {}
+          "EntityLibarary.dll": {}
         }
       }
     }
@@ -27,7 +27,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "EntityLibrary/1.0.0": {
+    "EntityLibarary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

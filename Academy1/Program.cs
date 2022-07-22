@@ -1,8 +1,5 @@
-﻿using System;
-using DataLibrary;
-using RepositoryLibrary.Implementation;
+﻿using DataLibrary;
 using static EntityLibrary.Constatnts.Constants;
-using EntityLibrary;
 using Manage.Controllers;
 
 namespace Manage
@@ -66,7 +63,7 @@ namespace Manage
                                         break;
                                     case (int)Options.Exit:
                                         ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "you exit");
-                                        goto Initial;
+                                        
                                         return;
                                 }
 
@@ -133,7 +130,8 @@ namespace Manage
                 else
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "You have not entered a right digit, to continue press 5");
-                    if (number == "5")
+                    string typedNumber = Console.ReadLine();
+                    if (typedNumber == "5")
                     {
                         goto Initial;
                     }

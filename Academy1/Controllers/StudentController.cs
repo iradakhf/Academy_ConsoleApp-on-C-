@@ -187,8 +187,11 @@ namespace Manage.Controllers
         #region RemoveStudentByGroup
         public void RemoveStudent()
         {
-            GetAllStudentsByGroup();
-        TypingId: ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "Please, enter a student id to delete a student");
+            
+            if (GetAllStudentsByGroup()!= null)
+            {
+                GetAllStudentsByGroup();
+            TypingId: ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "Please, enter a student id to delete a student");
             string studentId = Console.ReadLine();
             int id;
             bool result = int.TryParse(studentId, out id);
@@ -214,6 +217,8 @@ namespace Manage.Controllers
             }
 
         }
+
+            }
         #endregion
         #region GetStudentByGroup
         public void GetStudentByGroup()
@@ -273,8 +278,8 @@ namespace Manage.Controllers
         public Group GetAllStudentsByGroup()
         {
 
-            var groups = _groupRepository.GetAll();
-            if (groups != null)
+        var groups = _groupRepository.GetAll();
+        if (groups.Count!= 0)
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "choose a group name to continue");
                 foreach (var group in groups)
@@ -306,12 +311,13 @@ namespace Manage.Controllers
                 else
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "no group like that");
-
+                    
                 }
             }
             else
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "group doesnt exist");
+                
             }
             return student.Group;
         }

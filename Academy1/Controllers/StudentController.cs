@@ -242,10 +242,15 @@ namespace Manage.Controllers
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "please, choose student id");
                         foreach (var student in students)
                         {
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, $" name is {student.Name} id is{student.Id}");
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, $" name is {student.Name}, id is {student.Id}");
                         }
-                        string studentName = Console.ReadLine();
-                        var choosenStudent = _studentRepository.Get(s => s.Name.ToLower() == studentName.ToLower());
+                        string sId = Console.ReadLine();
+                        int studentId;
+                        bool result = int.TryParse(sId, out studentId);
+                        if (result)
+                        {
+
+                        var choosenStudent = _studentRepository.Get(s => s.Id== studentId);
                         if (choosenStudent != null)
                         {
 
@@ -257,6 +262,7 @@ namespace Manage.Controllers
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkCyan, "there is no student like typed in the group");
                         }
 
+                        }
                     }
                     else
                     {

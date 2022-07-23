@@ -18,8 +18,8 @@ namespace Manage.Controllers
 
          ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter a group name");
             string groupName = Console.ReadLine();
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter group maxSize");
-            string sizeString = Console.ReadLine();
+        EnteringCorrectPatterns: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter group maxSize");
+             string sizeString = Console.ReadLine();
             int maxSize;
             bool result1 = int.TryParse(sizeString, out maxSize);
             if (result1)
@@ -35,7 +35,7 @@ namespace Manage.Controllers
             else
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter correct patterns");
-                
+                goto EnteringCorrectPatterns;
             }
         }
         #endregion
@@ -98,9 +98,12 @@ namespace Manage.Controllers
         #region DeleteGroup
         public void DeleteGroup()
         {
+            var groups = _groupRepository.GetAll();
+            if (groups.Count != 0)
+            {
+
             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "please choose the group you want to delete from displayed");
             
-            var groups = _groupRepository.GetAll();
             foreach (var group1 in groups)
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, group1.Name);
@@ -108,13 +111,18 @@ namespace Manage.Controllers
             string groupName = Console.ReadLine();
             var group = _groupRepository.Get(g=>g.Name.ToLower()==groupName.ToLower());
             if (group != null)
-            {
+            {    
                 _groupRepository.Remove(group);
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "group is removed");
             }
             else
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "doesnt exist");
+            }
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There is no group on data");
             }
         }
         #endregion

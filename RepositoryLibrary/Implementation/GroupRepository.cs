@@ -8,7 +8,7 @@ namespace RepositoryLibrary.Implementation
 {
     public class GroupRepository : IRepository<Group>
     { 
-        private static int id=0;
+        private static int id;
        
         public Group Create(Group entity)
         {

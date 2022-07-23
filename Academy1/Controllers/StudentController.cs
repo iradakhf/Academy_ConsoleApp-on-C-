@@ -236,13 +236,13 @@ namespace Manage.Controllers
                 if (gr != null)
                 {
                     student.Group = gr;
-                    var students = _studentRepository.GetAll(s => s.Group.Id == s.Id);
+                    var students = _studentRepository.GetAll(s => s.Group.Id == gr.Id);
                     if (students.Count != 0)
                     {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "please, choose student name");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "please, choose student id");
                         foreach (var student in students)
                         {
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, student.Name);
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, $" name is {student.Name} id is{student.Id}");
                         }
                         string studentName = Console.ReadLine();
                         var choosenStudent = _studentRepository.Get(s => s.Name.ToLower() == studentName.ToLower());

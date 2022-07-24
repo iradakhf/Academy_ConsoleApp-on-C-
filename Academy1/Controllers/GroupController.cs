@@ -60,8 +60,10 @@ namespace Manage.Controllers
         #region UpdateGroup
         public void Update()
         {
-            Console.WriteLine("Please choose the group to update");
             var groups = _groupRepository.GetAll();
+            if (groups.Count != 0)
+            {
+            Console.WriteLine("Please choose the group to update");
             foreach (var group1 in groups)
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, group1.Name);
@@ -87,6 +89,12 @@ namespace Manage.Controllers
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "please, enter a correct number for maxSize");
                 }
                 
+
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGray, "no group found");
+            }
             }
             else
             {

@@ -8,7 +8,15 @@ namespace Manage
     {
         public static void Main(string[] args)
 
-        {   
+        {   AdminController admi
+                while (true)
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter the username");
+                    string username = Console.ReadLine();
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter the password");
+                    string password = Console.ReadLine(); 
+                    var admin =
+                }
             
             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGray, "Welcome");
             Console.WriteLine("   ");

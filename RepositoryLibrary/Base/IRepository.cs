@@ -1,4 +1,5 @@
-﻿using EntityLibrary.abstraction;
+﻿
+using EntityLibrary.abstraction;
 
 namespace RepositoryLibrary.Base
 {

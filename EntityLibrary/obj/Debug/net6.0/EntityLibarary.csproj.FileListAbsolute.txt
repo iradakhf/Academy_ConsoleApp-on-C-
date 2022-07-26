@@ -10,3 +10,15 @@ C:\Users\irade\source\repos\Academy\Academy_ConsoleApp-on-C-\EntityLibrary\obj\D
 C:\Users\irade\source\repos\Academy\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\refint\EntityLibarary.dll
 C:\Users\irade\source\repos\Academy\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\EntityLibarary.pdb
 C:\Users\irade\source\repos\Academy\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\ref\EntityLibarary.dll
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\bin\Debug\net6.0\EntityLibarary.deps.json
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\bin\Debug\net6.0\EntityLibarary.dll
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\bin\Debug\net6.0\EntityLibarary.pdb
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\EntityLibarary.csproj.AssemblyReference.cache
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\EntityLibarary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\EntityLibarary.AssemblyInfoInputs.cache
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\EntityLibarary.AssemblyInfo.cs
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\EntityLibarary.csproj.CoreCompileInputs.cache
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\EntityLibarary.dll
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\refint\EntityLibarary.dll
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\EntityLibarary.pdb
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\EntityLibrary\obj\Debug\net6.0\ref\EntityLibarary.dll

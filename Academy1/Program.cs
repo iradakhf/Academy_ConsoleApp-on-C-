@@ -1,6 +1,7 @@
 ﻿using DataLibrary;
 using static EntityLibrary.Constatnts.Constants;
 using Manage.Controllers;
+using DataLibrary.Implementation;
 
 namespace Manage
 {
@@ -8,176 +9,188 @@ namespace Manage
     {
         public static void Main(string[] args)
 
-        {   AdminController admi
-                while (true)
-                {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter the username");
-                    string username = Console.ReadLine();
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter the password");
-                    string password = Console.ReadLine(); 
-                    var admin =
-                }
-            
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGray, "Welcome");
-            Console.WriteLine("   ");
-            Initial:  Console.WriteLine("Please enter 0 if you want to continue with group , 1 if you want to continue with student or 2 to exit ");
-            string number = Console.ReadLine();
+        {
 
-            try
+            AdminController _adminController = new AdminController();
+            AdminRepository _dminRepository = new AdminRepository();
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter the username");
+            string username = Console.ReadLine();
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter the password");
+            string password = Console.ReadLine();
+        AdminAutetication: var admin = _adminController.Autenticate();
+            if (admin != null)
             {
-                while (true)
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGray, $"Welcome {admin.Username}");
+
+
+
+
+                Console.WriteLine("   ");
+            Initial: Console.WriteLine("Please enter 0 if you want to continue with group , 1 if you want to continue with student or 2 to exit ");
+                string number = Console.ReadLine();
+
+                try
                 {
-
-                    if (number == "0")
+                    while (true)
                     {
-                        GroupController _groupController = new GroupController();
-                        while (true)
+
+                        if (number == "0")
                         {
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select one of the options");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "0-Exit");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "1-create group");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "2-update group");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "3-remove group");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "4-get group");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "5-get all groups");
-
-                            string number1 = Console.ReadLine();
-                            int selected;
-                            bool result = int.TryParse(number1, out selected);
-                            if (result)
+                            GroupController _groupController = new GroupController();
+                            while (true)
                             {
-                                if (selected >= 0 && selected < 6)
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select one of the options");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "0-Exit");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "1-create group");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "2-update group");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "3-remove group");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "4-get group");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "5-get all groups");
+
+                                string number1 = Console.ReadLine();
+                                int selected;
+                                bool result = int.TryParse(number1, out selected);
+                                if (result)
                                 {
-                                    switch (selected)
+                                    if (selected >= 0 && selected < 6)
                                     {
+                                        switch (selected)
+                                        {
 
-                                        case (int)Options.CreateGroup:
-                                            _groupController.CreateGroup();
-                                            goto Initial;
-                                            break;
+                                            case (int)Options.CreateGroup:
+                                                _groupController.CreateGroup();
+                                                goto Initial;
+                                                break;
 
-                                        case (int)Options.UpdateGroup:
-                                            _groupController.Update();
-                                            goto Initial;
-                                            break;
-                                        case (int)Options.RemoveGroup:
-                                            _groupController.DeleteGroup();
-                                            goto Initial;
-                                            break;
-                                        case (int)Options.GetGroup:
-                                            _groupController.GetGroup();
-                                            goto Initial;
-                                            break;
-                                        case (int)Options.GetAllGroups:
-                                            _groupController.GetAllGroup();
-                                            goto Initial;
-                                            break;
-                                        case (int)Options.Exit:
-                                            ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "you exit");
+                                            case (int)Options.UpdateGroup:
+                                                _groupController.Update();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options.RemoveGroup:
+                                                _groupController.DeleteGroup();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options.GetGroup:
+                                                _groupController.GetGroup();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options.GetAllGroups:
+                                                _groupController.GetAllGroup();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options.Exit:
+                                                ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "you exit");
 
-                                            return;
+                                                return;
+                                        }
+
                                     }
+                                    else
+                                    {
+                                        Console.WriteLine("Please enter correct number");
 
+                                    }
                                 }
                                 else
                                 {
                                     Console.WriteLine("Please enter correct number");
-
                                 }
                             }
-                            else
-                            {
-                                Console.WriteLine("Please enter correct number");
-                            }
                         }
-                    }
-                    else if (number == "1")
-                    {
-                        StudentController _studentController = new StudentController();
-                        while (true)
+                        else if (number == "1")
                         {
-                            ChoosingCorrectPattern: ChoosingOneOption: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select one of the options");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "0-Exit");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "1-create student");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "2-update student");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "3-remove student by group");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "4-get student by group");
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "5-get all students by group");
-
-                            string number1 = Console.ReadLine();
-                            int selectedOption;
-                            bool result = int.TryParse(number1, out selectedOption);
-                            if (result)
+                            StudentController _studentController = new StudentController();
+                            while (true)
                             {
-                                if (selectedOption >= 0 && selectedOption <= 5)
-                                {
+                            ChoosingCorrectPattern: ChoosingOneOption: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select one of the options");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "0-Exit");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "1-create student");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "2-update student");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "3-remove student by group");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "4-get student by group");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "5-get all students by group");
 
-                                    switch (selectedOption)
+                                string number1 = Console.ReadLine();
+                                int selectedOption;
+                                bool result = int.TryParse(number1, out selectedOption);
+                                if (result)
+                                {
+                                    if (selectedOption >= 0 && selectedOption <= 5)
                                     {
-                                        case (int)Options2.Exit:
-                                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "you exit d");
-                                            goto ChoosingOneOption;
-                                            break;
-                                        case (int)Options2.CreateStudent:
-                                            _studentController.CreateStudent();
-                                            goto Initial;
-                                            break;
-                                        case (int)Options2.UpdateStudent:
-                                            _studentController.UpdateStudent();
-                                            goto Initial;
-                                            break;
-                                        case (int)Options2.RemoveStudent:
-                                            _studentController.RemoveStudent();
-                                            goto Initial;
-                                            break;
-                                        case (int)Options2.GetStudentByGroup:
-                                            _studentController.GetStudentByGroup();
-                                            goto Initial;
-                                            break;
-                                        case (int)Options2.GetAllStudentsByGroup:
-                                            _studentController.GetAllStudentsByGroup();
-                                            goto Initial;
-                                            break;
+
+                                        switch (selectedOption)
+                                        {
+                                            case (int)Options2.Exit:
+                                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "you exit d");
+                                                goto ChoosingOneOption;
+                                                break;
+                                            case (int)Options2.CreateStudent:
+                                                _studentController.CreateStudent();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options2.UpdateStudent:
+                                                _studentController.UpdateStudent();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options2.RemoveStudent:
+                                                _studentController.RemoveStudent();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options2.GetStudentByGroup:
+                                                _studentController.GetStudentByGroup();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options2.GetAllStudentsByGroup:
+                                                _studentController.GetAllStudentsByGroup();
+                                                goto Initial;
+                                                break;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "You have not entered a correct digit");
                                     }
                                 }
                                 else
                                 {
-                                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "You have not entered a correct digit");
+                                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "please, type a correct pattern");
+                                    goto ChoosingCorrectPattern;
                                 }
                             }
-                            else
-                            {
-                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "please, type a correct pattern");
-                                goto ChoosingCorrectPattern;
-                            }
-                        }
 
-                    }
-                    else if (number=="2")
-                    {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "you exit");
-                        break;
-                    }
-                    else
-                    {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "You have not entered a right digit, to continue press 5");
-                        string typedNumber = Console.ReadLine();
-                        if (typedNumber == "5")
+                        }
+                        else if (number == "2")
                         {
-                            goto Initial;
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "you exit");
+                            break;
                         }
                         else
                         {
-                            Console.WriteLine("Thanks for visiting");
-                            break;
-                        }
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "You have not entered a right digit, to continue press 5");
+                            string typedNumber = Console.ReadLine();
+                            if (typedNumber == "5")
+                            {
+                                goto Initial;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Thanks for visiting");
+                                break;
+                            }
 
+                        }
                     }
                 }
+                catch
+                {
+                    Console.WriteLine("thanks for visiting");
+                }
+
             }
-            catch
+            else
             {
-                Console.WriteLine("thanks for visiting");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "please enter the correct password");
+                goto AdminAutetication;
             }
 
         }

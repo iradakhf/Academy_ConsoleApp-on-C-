@@ -24,9 +24,7 @@ C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\bin\Debu
 C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\Manage.dll
 C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\Manage.pdb
 C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\DataLibrary.dll
-C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\EntityLibrary.dll
 C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\DataLibrary.pdb
-C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\EntityLibrary.pdb
 C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\obj\Debug\net6.0\Manage.csproj.AssemblyReference.cache
 C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\obj\Debug\net6.0\Manage.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\obj\Debug\net6.0\Manage.AssemblyInfoInputs.cache
@@ -78,3 +76,5 @@ C:\Users\irade\source\repos\Academy\Academy_ConsoleApp-on-C-\Academy1\obj\Debug\
 C:\Users\irade\source\repos\Academy\Academy_ConsoleApp-on-C-\Academy1\obj\Debug\net6.0\ref\Manage.dll
 C:\Users\irade\source\repos\Academy\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\EntityLibarary.dll
 C:\Users\irade\source\repos\Academy\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\EntityLibarary.pdb
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\EntityLibarary.dll
+C:\Users\iradakhf\source\repos\Manage\Academy_ConsoleApp-on-C-\Academy1\bin\Debug\net6.0\EntityLibarary.pdb

@@ -1,4 +1,5 @@
-﻿using EntityLibrary.abstraction;
+﻿using EntityLibarary;
+using EntityLibrary.abstraction;
 
 namespace EntityLibrary
 {
@@ -9,6 +10,7 @@ namespace EntityLibrary
         public int MaxSize { get; set; }
         public int Id { get ; set ; }
         public int CurrentSize { get; set; }
+        public Teacher teacher { get; set; }
 
     }
 }

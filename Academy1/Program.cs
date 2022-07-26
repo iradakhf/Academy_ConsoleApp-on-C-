@@ -12,7 +12,7 @@ namespace Manage
         {
 
             AdminController _adminController = new AdminController();
-            AdminRepository _dminRepository = new AdminRepository();
+            
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter the username");
             string username = Console.ReadLine();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter the password");
@@ -21,12 +21,8 @@ namespace Manage
             if (admin != null)
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGray, $"Welcome {admin.Username}");
-
-
-
-
                 Console.WriteLine("   ");
-            Initial: Console.WriteLine("Please enter 0 if you want to continue with group , 1 if you want to continue with student or 2 to exit ");
+            Initial: Console.WriteLine("Please enter 0 if you want to continue with group , 1 if you want to continue with student, 2 to continue with teacher or 3 to exit ");
                 string number = Console.ReadLine();
 
                 try
@@ -159,7 +155,69 @@ namespace Manage
                             }
 
                         }
-                        else if (number == "2")
+                        else if (number=="2")
+                        {
+                            TeacherController _teacherController = new TeacherController();
+                            while (true)
+                            {
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select one of the options");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "0-Exit");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "1-create teacher");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "2-update teacher");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "3-remove teacher");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "4-get teacher");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "5-get all teachers");
+
+                                string number1 = Console.ReadLine();
+                                int selected;
+                                bool result = int.TryParse(number1, out selected);
+                                if (result)
+                                {
+                                    if (selected >= 0 && selected < 6)
+                                    {
+                                        switch (selected)
+                                        {
+
+                                            case (int)Options3.CreateTeacher:
+                                                _teacherController.Create();
+                                                goto Initial;
+                                                break;
+
+                                            case (int)Options3.UpdateTeacher:
+                                                _teacherController.Update();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options3.RemoveTeacher:
+                                                _teacherController.Remove();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options.GetGroup:
+                                                _teacherController.Get();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options.GetAllGroups:
+                                                _teacherController.GetAll();
+                                                goto Initial;
+                                                break;
+                                            case (int)Options.Exit:
+                                                ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "you exit");
+                                                return;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Please enter correct number");
+
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Please enter correct number");
+                                }
+                            }
+                        }
+                        else if (number == "3")
                         {
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "you exit");
                             break;

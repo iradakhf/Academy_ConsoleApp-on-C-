@@ -22,5 +22,14 @@ namespace EntityLibrary.Constatnts
             GetStudentByGroup,
             GetAllStudentsByGroup
         }
+        public enum Options3
+        {
+            Exit,
+            CreateTeacher,
+            UpdateTeacher,
+            RemoveTeacher,
+            GetTeacherByGroup,
+            GetAllTeachers
+        }
     }
 }

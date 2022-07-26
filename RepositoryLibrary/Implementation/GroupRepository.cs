@@ -14,13 +14,24 @@ namespace RepositoryLibrary.Implementation
         {
             id++;
             entity.Id = id;
-            Data.Groups.Add(entity);
             
-            return entity;
+            try
+            {
+            Data.Groups.Add(entity);
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+            return null;
         }
 
         public Group Get(Predicate<Group> filter=null)
         {
+            try
+            {
             if (filter == null)
             {
                 return Data.Groups[0];
@@ -29,15 +40,34 @@ namespace RepositoryLibrary.Implementation
             {
                 return Data.Groups.Find(filter);
             }
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                return null;
+            }
         }
 
         public void Remove(Group entity)
         {
+            try
+            {
+
             Data.Groups.Remove(entity);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
         }
 
         public void Update(Group entity)
         {
+            try
+            {
             var group = Data.Groups.Find(g => g.Id == entity.Id);
             if (group != null)
             {
@@ -45,10 +75,19 @@ namespace RepositoryLibrary.Implementation
                 group.MaxSize = entity.MaxSize;
             }
 
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
         }
 
         public List<Group> GetAll(  Predicate<Group> filter=null)
         {
+            try
+            {
             if (filter == null)
             {
                 return Data.Groups;
@@ -56,6 +95,14 @@ namespace RepositoryLibrary.Implementation
             else
             {
                 return Data.Groups.FindAll(filter);
+            }
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                return null;
             }
         }
     }

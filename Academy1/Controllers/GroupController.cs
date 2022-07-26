@@ -18,12 +18,16 @@ namespace Manage.Controllers
 
          ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter a group name");
             string groupName = Console.ReadLine();
+            var groups = _groupRepository.Get(g => g.Name == groupName);
+            if(groups == null)
+            {
         EnteringCorrectPatterns: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, "enter group maxSize");
              string sizeString = Console.ReadLine();
             int maxSize;
             bool result1 = int.TryParse(sizeString, out maxSize);
             if (result1)
             {
+                
                 Group group = new Group();
                 group.Name = groupName;
                 group.MaxSize = maxSize;
@@ -36,6 +40,12 @@ namespace Manage.Controllers
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter correct patterns");
                 goto EnteringCorrectPatterns;
+            }
+
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Group already exist");
             }
         }
         #endregion

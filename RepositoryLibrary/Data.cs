@@ -11,6 +11,7 @@ namespace DataLibrary
             Students = new List<Student>();
             Groups = new List<Group>();
             Admins = new List<Admin>();
+            Teachers = new List<Teacher>();
 
             string password1 = "12345678";
             var hashedPassword = PasswordHasher.Encrypt(password1);
@@ -26,6 +27,7 @@ namespace DataLibrary
         }
         public static List<Student> Students {get; set;}
      public static List<Group> Groups { get; set; }
+        public static List<Teacher> Teachers { get; set; }
         public static List<Admin> Admins { get; set; }
     }
 }

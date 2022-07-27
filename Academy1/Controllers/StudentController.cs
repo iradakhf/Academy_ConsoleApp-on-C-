@@ -22,18 +22,18 @@ namespace Manage.Controllers
             var groups = _groupRepository.GetAll();
             if (groups.Count != 0)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "Choose one group to continue");
-                foreach (var group in groups)
+                Console.WriteLine("Please choose the group id to update");
+                foreach (var group1 in groups)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, group.Name);
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, $"ID is {group1.Id}, Name is {group1.Name}");
                 }
-
-                var choosenGroup = Console.ReadLine();
-
-                var gr = _groupRepository.Get(g => g.Name.ToLower() == choosenGroup.ToLower());
-                if (gr != null)
+                int id;
+                string groupId = Console.ReadLine();
+                bool result = int.TryParse(groupId, out id);
+                var group = _groupRepository.Get(g => g.Id == id);
+                if (group != null)
                 {
-                    if (gr.CurrentSize < gr.MaxSize)
+                    if (group.CurrentSize < group.MaxSize)
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "enter student name");
                         string name = Console.ReadLine();
@@ -43,13 +43,13 @@ namespace Manage.Controllers
                     correctAge: ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Please, enter the student's age");
                         string agestr = Console.ReadLine();
                         byte age;
-                        bool result = byte.TryParse(agestr, out age);
+                        result = byte.TryParse(agestr, out age);
                         if (result)
                         {
                             student.Name = name;
                             student.Age = age;
                             student.Surname = surname;
-                            student.Group = gr;
+                            student.Group = group;
                             ++student.Group.CurrentSize;
                             _studentRepository.Create(student);
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"New student's name is {name} , surname is, {surname} Age is {age}, Id is {student.Id}");
@@ -287,17 +287,18 @@ namespace Manage.Controllers
         var groups = _groupRepository.GetAll();
         if (groups.Count!= 0)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "choose a group name to continue");
-                foreach (var group in groups)
+                Console.WriteLine("Please choose the group id to update");
+                foreach (var group1 in groups)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, group.Name);
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, $"ID is {group1.Id}, Name is {group1.Name}");
                 }
-
-                string groupName = Console.ReadLine();
-                var groupToGetAllStudents = _groupRepository.Get(g => g.Name.ToLower() == groupName.ToLower());
-                if (groupToGetAllStudents != null)
+                int id;
+                string groupId = Console.ReadLine();
+                bool result = int.TryParse(groupId, out id);
+                var group = _groupRepository.Get(g => g.Id == id);
+                if (group != null)
                 {
-                    var allStudentsOfTheGroup = _studentRepository.GetAll(s => s.Group.Id == groupToGetAllStudents.Id);
+                    var allStudentsOfTheGroup = _studentRepository.GetAll(s => s.Group.Id == group.Id);
                     if (allStudentsOfTheGroup.Count != 0)
                     {
                         foreach (var student in allStudentsOfTheGroup)

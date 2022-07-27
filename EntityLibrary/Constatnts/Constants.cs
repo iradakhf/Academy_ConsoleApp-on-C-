@@ -10,8 +10,10 @@ namespace EntityLibrary.Constatnts
             UpdateGroup,
             RemoveGroup,
             GetGroup,
-            GetAllGroups
-   
+            GetAllGroups,
+            AddGroupToTeacher,
+                GetAllGroupsByTeacher
+
         }
         public enum Options2
         {
@@ -28,7 +30,7 @@ namespace EntityLibrary.Constatnts
             CreateTeacher,
             UpdateTeacher,
             RemoveTeacher,
-            GetTeacherByGroup,
+            GetTeacher,
             GetAllTeachers
         }
     }

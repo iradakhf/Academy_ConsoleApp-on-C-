@@ -11,6 +11,7 @@ namespace EntityLibrary
         public int Id { get ; set ; }
         public int CurrentSize { get; set; }
         public Teacher teacher { get; set; }
+        
 
     }
 }

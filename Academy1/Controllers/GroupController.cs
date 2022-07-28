@@ -189,7 +189,7 @@ namespace Manage.Controllers
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please choose one of the teacher's id to continue");
                 foreach (var teacher in teachers)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{teacher.Id} : {teacher.Name}");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $" id is :{teacher.Id} : name is {teacher.Name}");
                 }
                 string id = Console.ReadLine();
                 int choosenId;
@@ -247,15 +247,18 @@ namespace Manage.Controllers
             WritingCorrectId: ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please choose teacher id to continue");
                 foreach (var teacher in teachers)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{teacher.Id}: {teacher.Name}");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $" Id is {teacher.Id}: Name {teacher.Name}");
                 }
                 string Id = Console.ReadLine();
                 int choosenId;
                 bool result = int.TryParse(Id, out choosenId);
                 if (result)
                 {
-                var teacher1 = _teacherRepository.Get(t => t.Id == choosenId);
-                    if (teacher1!=null)
+                    var teacher = _teacherRepository.Get(t=> t.Id == choosenId);
+                    if (teacher!=null)
+                    {
+                var groups = _groupRepository.Get(g => g.teacher !=null? g.teacher.Id == teacher);
+                    if (groups!=null)
                     {
 
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"{teacher1.Name} {teacher1.Surname} ");
@@ -269,6 +272,12 @@ namespace Manage.Controllers
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "no teacher found");
                         goto WritingCorrectId;
+                    }
+
+                    }
+                    else
+                    {
+
                     }
                 }
                 else

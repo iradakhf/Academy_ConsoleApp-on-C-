@@ -9,6 +9,7 @@ namespace Manage.Controllers
 {
     public class GroupController
     {
+        Group group2 =new Group();
         public GroupRepository _groupRepository;
         public TeacherRepository _teacherRepository;
         Teacher teacher = new Teacher();
@@ -127,7 +128,7 @@ namespace Manage.Controllers
             if (groups.Count > 0)
             {
 
-                Console.WriteLine("Please choose the group id to update");
+                Console.WriteLine("Please choose the group id to delete");
                 foreach (var group1 in groups)
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, $"ID is {group1.Id}, Name is {group1.Name}");
@@ -156,7 +157,7 @@ namespace Manage.Controllers
         public void GetGroup()
         {
             var groups = _groupRepository.GetAll();
-            Console.WriteLine("Please choose the group id to update");
+            Console.WriteLine("Please choose the group id to get group info");
             foreach (var group1 in groups)
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, $"ID is {group1.Id}, Name is {group1.Name}");
@@ -204,11 +205,18 @@ namespace Manage.Controllers
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkGreen, $"{group.Name}");
                         }
                         string choosenGroup = Console.ReadLine();
-                        var groupChoosen = _groupRepository.Get(g => g.Name == choosenGroup);
+                        var groupChoosen = _groupRepository.Get(g => g.Name == choosenGroup );
                         if (groupChoosen != null)
                         {
+                            if (groupChoosen == null)
+                            {
+
                             teacher.Groups.Add(groupChoosen);
+                                group2.teacher = teacher;
+                                
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Teacher has group named {groupChoosen.Name}");
+
+                            }
                         }
                         else
                         {

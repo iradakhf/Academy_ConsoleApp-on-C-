@@ -82,7 +82,7 @@ namespace Manage
                                                 break;
                                             case (int)Options.Exit:
                                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "you exit");
-
+                                                goto Initial;
                                                 return;
                                         }
 
@@ -104,7 +104,7 @@ namespace Manage
                             StudentController _studentController = new StudentController();
                             while (true)
                             {
-                            ChoosingCorrectPattern: ChoosingOneOption: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select one of the options");
+                            ChoosingCorrectPattern: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select one of the options");
                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "0-Exit");
                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "1-create student");
                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "2-update student");
@@ -122,10 +122,7 @@ namespace Manage
 
                                         switch (selectedOption)
                                         {
-                                            case (int)Options2.Exit:
-                                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "you exit d");
-                                                goto ChoosingOneOption;
-                                                break;
+                                            
                                             case (int)Options2.CreateStudent:
                                                 _studentController.CreateStudent();
                                                 goto Initial;
@@ -146,6 +143,10 @@ namespace Manage
                                                 _studentController.GetAllStudentsByGroup();
                                                 goto Initial;
                                                 break;
+                                            case (int)Options2.Exit:
+                                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "you exit");
+                                                goto Initial; ;
+                                                return;
                                         }
                                     }
                                     else
@@ -207,6 +208,7 @@ namespace Manage
                                                 break;
                                             case (int)Options3.Exit:
                                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "you exit");
+                                                goto Initial;
                                                 return;
                                         }
 

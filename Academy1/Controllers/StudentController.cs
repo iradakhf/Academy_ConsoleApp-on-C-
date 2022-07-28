@@ -22,7 +22,7 @@ namespace Manage.Controllers
             var groups = _groupRepository.GetAll();
             if (groups.Count != 0)
             {
-                Console.WriteLine("Please choose the group id to update");
+                Console.WriteLine("Please choose the group id to create");
                 foreach (var group1 in groups)
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, $"ID is {group1.Id}, Name is {group1.Name}");
@@ -188,7 +188,7 @@ namespace Manage.Controllers
         public void RemoveStudent()
         {
             
-            if (GetAllStudentsByGroup()!= null)
+            if (student.Groups!= null)
             {
                 GetAllStudentsByGroup();
             TypingId: ConsoleHelper.WriteTextWithColor(ConsoleColor.White, "Please, enter a student id to delete a student");
@@ -217,6 +217,10 @@ namespace Manage.Controllers
             }
 
         }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "no group found on data");
+            }
 
             }
         #endregion
@@ -287,7 +291,7 @@ namespace Manage.Controllers
         var groups = _groupRepository.GetAll();
         if (groups.Count!= 0)
             {
-                Console.WriteLine("Please choose the group id to update");
+                Console.WriteLine("Please choose the group id to get all students by group");
                 foreach (var group1 in groups)
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, $"ID is {group1.Id}, Name is {group1.Name}");
@@ -304,8 +308,6 @@ namespace Manage.Controllers
                         foreach (var student in allStudentsOfTheGroup)
                         {
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $" Student name is {student.Name}, surname is {student.Surname}, age is {student.Age}, id is {student.Id}");
-
-
                         }
 
                     }
